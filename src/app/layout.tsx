@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "./_components/header/header";
+
+// components
+import UserMenu from "./_components/ui/UserMenu";
+import Common from "./_components/common/common";
 
 // NoSSR でやりたい時 ------------------------------------------------------------------
 // import dynamic from "next/dynamic";
@@ -22,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={inter.className}>
-        <Header />
+        <Common />
         {children}
       </body>
     </html>

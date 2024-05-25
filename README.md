@@ -2,6 +2,10 @@
 これはアークナイツTRPGで使用するキャラクターシートを web上で制作及び管理するためのアプリケーションです。
 
 
+## 使ったもの
+* header, sidebar : [Flowbite](https://flowbite.com/docs/components/sidebar/#sidebar-with-navbar)をReact仕様に編集
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
