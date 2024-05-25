@@ -9,3 +9,8 @@ export interface ISideBar {
     path : string,
     icon : string,
 }
+
+// interface Arguments in the Sidebar
+export interface IASidebar {
+    isSmall?: boolean
+}
