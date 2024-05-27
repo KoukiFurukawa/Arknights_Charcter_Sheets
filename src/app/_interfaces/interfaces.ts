@@ -26,3 +26,10 @@ export interface ISimpleInput
     require : boolean;
     id : string;
 };
+
+export interface IModal
+{
+    title: string;
+    bodyData: ISimpleInput[];
+    isLogin : boolean;
+}
