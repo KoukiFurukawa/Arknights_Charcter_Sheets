@@ -11,7 +11,7 @@ const Modal: React.FC<IModal> = ({title, bodyData, isLogin}) =>
                 {/* <!-- Modal content --> */}
                 <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
                     <ModalHeader title={title}/>
-                    <ModalBody bodyData={bodyData} isLogin={isLogin} />
+                    <ModalBody title={title} bodyData={bodyData} isLogin={isLogin} />
                 </div>
             </div>
         </div>

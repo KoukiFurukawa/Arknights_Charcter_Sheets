@@ -1,6 +1,6 @@
 import { ISimpleInput } from "../_interfaces/interfaces"
 
-export const loginInputData: ISimpleInput[] = [
+export const signupInputData: ISimpleInput[] = [
     {
         label      : "ユーザー名（任意）",
         placeholder: "Dr.EXAMPLE",
@@ -15,13 +15,6 @@ export const loginInputData: ISimpleInput[] = [
         _type      : "email",
         require    : true
     },
-    // {
-    //     label      : "メールアドレス(確認用）",
-    //     placeholder: "name@example.com",
-    //     id         : "email",
-    //     _type      : "email",
-    //     require    : true
-    // },
     {
         label      : "パスワード",
         placeholder: "•••••••",
