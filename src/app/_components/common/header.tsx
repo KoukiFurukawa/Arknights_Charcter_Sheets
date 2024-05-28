@@ -1,6 +1,8 @@
 "use client"
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import { CheckLogin } from '../modal/cookie';
 
 // components
 import UserMenu from '../ui/UserMenu';
@@ -13,11 +15,16 @@ function Header() {
 
     const [showUserMenu, setShowUserMenu] = useState<boolean>(false);
     const [showSidebar, setShowSidebar] = useState<boolean>(false);
+    const router = useRouter();
 
-    const toggleUserMenu = () => {
-        if (showUserMenu) { setShowUserMenu(false) }
-        else { setShowUserMenu(true) }
-        return;
+    const toggleUserMenu = async () => {
+        if (showUserMenu) { setShowUserMenu(false); return; }
+        else {
+            const result = await CheckLogin();
+            if (!result) { router.push("/login"); }
+            else { setShowUserMenu(true) }
+            return ;
+        }
     }
 
     const toggleSidebar = () => {

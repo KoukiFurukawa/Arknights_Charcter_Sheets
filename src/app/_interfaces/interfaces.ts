@@ -10,6 +10,7 @@ export interface ISideBar
     title: string;
     path : string;
     icon : string;
+    needLogin: boolean;
 };
 
 // interface Arguments in the Sidebar
