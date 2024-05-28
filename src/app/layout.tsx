@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 // components
-import UserMenu from "./_components/ui/UserMenu";
 import Common from "./_components/common/common";
 
 // NoSSR でやりたい時 ------------------------------------------------------------------
