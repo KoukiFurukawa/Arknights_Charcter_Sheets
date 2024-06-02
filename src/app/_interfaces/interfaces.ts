@@ -34,3 +34,9 @@ export interface IModal
     bodyData: ISimpleInput[];
     isLogin : boolean;
 }
+
+export interface loginKey
+{
+    name: string,
+    userId: string,
+}

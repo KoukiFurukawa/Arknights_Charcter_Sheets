@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { CheckLogin } from '../modal/cookie';
+import { CheckLogin } from '../../_lib/cookie';
 
 // components
 import UserMenu from '../ui/UserMenu';

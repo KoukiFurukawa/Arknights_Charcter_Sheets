@@ -1,13 +1,7 @@
 "use server"
 
 import { cookies } from "next/headers"
-
-interface loginKey
-{
-    name: string,
-    userId: string,
-
-}
+import { loginKey } from "../_interfaces/interfaces";
 
 export const CheckLogin = () => 
 {
@@ -38,4 +32,10 @@ export const CheckLogin = () =>
     {
         return false;
     }
+}
+
+export const saveLoginData = ({ name, userId }: loginKey) =>
+{
+    cookies().set('name', name);
+    cookies().set('userId', userId);
 }

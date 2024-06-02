@@ -15,14 +15,14 @@ export type userData = {
     name : string
 }
 
-export const registedUser = async ({email, password}: userCheck) => {
+export async function registedUser({email, password}: userCheck){
     try
     {
-        console.log("get userDataSnap")
         const userDataSnap = await getDoc(doc(db, "User", email));
-        console.log(userDataSnap)
-        if (userDataSnap.exists() && userDataSnap.data().password == password) { return true; }
-        else { return false; }
+        if (userDataSnap.exists() && userDataSnap.data().password == password) {
+            return {result: true, name: userDataSnap.data().name}
+        }
+        else { return { result: false, name: ""} }
     }
     catch (error)
     {

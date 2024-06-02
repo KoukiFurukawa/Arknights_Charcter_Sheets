@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { CheckLogin } from '../modal/cookie';
+import { CheckLogin } from '../../_lib/cookie';
 import { sidebarData } from '@/app/_utils/sidebar_data';
 import { IASidebar } from '@/app/_interfaces/interfaces';
 
@@ -22,6 +22,7 @@ export default function Sidebar({ isSmall = false }: IASidebar) {
     },[]);
 
     const setPath = (path: string, needLogin: boolean) => {
+        if (path == "/login") { path = "/" }
         localStorage.setItem("path", path);
         if (needLogin && !isLogin) { router.push("/login") }
     }

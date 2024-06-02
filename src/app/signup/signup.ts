@@ -1,7 +1,8 @@
 "use client";
 import { existingAddress } from "../_lib/firebase_func";
 import { registUser } from "../_lib/firebase_func";
-import { useRouter } from "next/navigation";
+import { saveLoginData } from "../_lib/cookie";
+import { loginKey } from "../_interfaces/interfaces";
 
 export async function signupAction(formData: FormData)
 {
@@ -11,12 +12,6 @@ export async function signupAction(formData: FormData)
     const check_password = formData.get("check_password");
     const remember = formData.get("remember");
 
-    const router = useRouter();
-
-    if (remember !== null)
-    {
-        console.log("remember")
-    }
     // 入力が不完全
     if (email == null || password == null || check_password == null || name == null)
     {
@@ -41,9 +36,12 @@ export async function signupAction(formData: FormData)
 
     const path = localStorage.getItem("path")
     localStorage.removeItem("path")
-    if (path == null) { return; }
-    
-    router.push(path);
+    if (path == null) { console.log("path-error"); }
+    else {
+        const login_key: loginKey = { name: name.toString(), userId: email.toString() }
+        saveLoginData(login_key);
+        window.location.href = path;
+    }
     
 
 }
