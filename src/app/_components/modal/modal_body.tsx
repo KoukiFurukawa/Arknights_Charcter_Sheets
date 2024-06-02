@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import Link from 'next/link';
 import SimpleInput from '../ui/SimpleInput';
@@ -8,9 +9,16 @@ import { signupAction } from '@/app/signup/signup';
 
 const ModalBody: React.FC<IModal> = ({ title, bodyData, isLogin }) =>
 {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) =>
+    {
+        event.preventDefault();
+        const formData = new FormData(event.currentTarget);
+        if (isLogin) { await loginAction(formData) }
+        else { await signupAction(formData) }
+    }
     return (
         <div className="p-4 md:p-5">
-            <form className="space-y-4" action={isLogin ? loginAction : signupAction}>
+            <form className="space-y-4" onSubmit={handleSubmit}>
 
                 {bodyData.map((value, key) => {
                     return (

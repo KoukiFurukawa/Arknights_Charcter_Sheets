@@ -3,6 +3,49 @@ import { ref, getDownloadURL } from "firebase/storage";
 
 import { db, storage } from "./firebase_client";
 
+export type userCheck = {
+    email: string,
+    password: string
+}
+export type userData = {
+    email: string,
+    password: string,
+    sheetIds: string[],
+    image: string,
+    name : string
+}
+
+export const registedUser = async ({email, password}: userCheck) => {
+    try
+    {
+        console.log("get userDataSnap")
+        const userDataSnap = await getDoc(doc(db, "User", email));
+        console.log(userDataSnap)
+        if (userDataSnap.exists() && userDataSnap.data().password == password) { return true; }
+        else { return false; }
+    }
+    catch (error)
+    {
+        console.log(error)
+    }
+    
+}
+
+
+export const existingAddress = async ({ email, password }: userCheck) => {
+    const userDataSnap = await getDoc(doc(db, "User", email));
+    return userDataSnap.exists();
+}
+
+export const registUser = async ({email, password, name, image, sheetIds} : userData) => {
+    setDoc(doc(collection(db, "User"), email), {
+        name: name,
+        password: password,
+        image: image,
+        sheetIds: sheetIds
+    });
+}
+
 
 let defaultData = {
     Profile : {
