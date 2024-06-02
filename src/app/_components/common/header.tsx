@@ -15,6 +15,8 @@ function Header() {
 
     const [showUserMenu, setShowUserMenu] = useState<boolean>(false);
     const [showSidebar, setShowSidebar] = useState<boolean>(false);
+    const [email, setEmail] = useState<string>("")
+    const [name, setName] = useState<string>("")
     const router = useRouter();
 
     const toggleUserMenu = async () => {
@@ -22,7 +24,11 @@ function Header() {
         else {
             const result = await CheckLogin();
             if (!result) { router.push("/login"); }
-            else { setShowUserMenu(true) }
+            else {
+                setEmail(result.email);
+                setName(result.name);
+                setShowUserMenu(true);
+            }
             return ;
         }
     }
@@ -63,7 +69,7 @@ function Header() {
                             showUserMenu ?
                             <>
                                 <div className='fixed top-0 left-0 w-screen h-screen z-0' onClick={toggleUserMenu}></div>
-                                <UserMenu />
+                                <UserMenu name={name} userId={email}/>
                             </>
                             : <></>
                         }

@@ -26,7 +26,7 @@ export const CheckLogin = () =>
 
     if (data.name != "" && data.userId != "")
     {
-        return data;
+        return { name: data.name, email: data.userId };
     }
     else
     {
