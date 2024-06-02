@@ -10,7 +10,7 @@ export async function signupAction(formData: FormData)
     const email = formData.get("email");
     const password = formData.get("password");
     const check_password = formData.get("check_password");
-    const remember = formData.get("remember");
+    // const remember = formData.get("remember");
 
     // 入力が不完全
     if (email == null || password == null || check_password == null || name == null)

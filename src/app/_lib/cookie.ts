@@ -39,3 +39,9 @@ export const saveLoginData = ({ name, userId }: loginKey) =>
     cookies().set('name', name);
     cookies().set('userId', userId);
 }
+
+export const Logout = () =>
+{
+    cookies().set("name", "");
+    cookies().set("userId", "");
+}

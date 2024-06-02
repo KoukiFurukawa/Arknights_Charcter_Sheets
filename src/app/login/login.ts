@@ -8,12 +8,8 @@ export async function loginAction(formData: FormData)
 {
     const email = formData.get("email");
     const password = formData.get("password");
-    const remember = formData.get("remember");
+    // const remember = formData.get("remember");
 
-    if (remember !== null)
-    {
-        console.log("remember")
-    }
     if (email == null || password == null)
     {
         return;
@@ -29,7 +25,7 @@ export async function loginAction(formData: FormData)
             const login_key: loginKey = { name: res.name, userId: email.toString() }
             saveLoginData(login_key);
             window.location.href = path;
-    }
+        }
     }
 
     console.log(email,password)
