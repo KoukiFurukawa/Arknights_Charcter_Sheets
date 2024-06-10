@@ -5,40 +5,36 @@
 ## 使ったもの
 * header, sidebar : [Flowbite](https://flowbite.com/docs/components/sidebar/#sidebar-with-navbar)をReact仕様に編集
 
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
+## 環境構築
+### 1. git の install
+ターミナル上で、以下のコマンドを入力。
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git --version
+```
+version が表示されなければ、[こちら](https://prog-8.com/docs/git-env-win) を参考に install
+
+### 2. node.js の install
+ターミナル上で node.js が install されているか確かめる。
+```bash
+node --version
+```
+これで ```v20.10.0``` 等のバージョンが表示されれば OK！ <br>
+node.js の install については [こちら](https://qiita.com/sefoo0104/items/0653c935ea4a4db9dc2b)
+
+### 3. プロジェクトの clone
+緑の ```code``` ボタンから https の url をコピーし、ターミナル上で以下のコマンドを入力
+```bash
+cd /任意のコードを配置するフォルダ
+git clone https://github.com/kouki928/Arknights_Charcter_Sheets.git
+```
+.zip ファイルが現在の階層にダウンロードされているか確認し展開する。
+
+### 4. 必要なライブラリの install
+```package.json```がある階層で以下のコマンドを入力する。
+```bash
+npm i
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### 5. Firebase のセッティング
+```package.json``` と同じ階層に、```.env.local``` という名前のファイルを作成、または共有されたファイルを配置する。
+これは firebase に値を格納するための key であるため、公開はしない。
