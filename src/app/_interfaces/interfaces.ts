@@ -40,3 +40,9 @@ export interface loginKey
     name: string,
     userId: string,
 }
+
+export interface SheetButtons
+{
+    name: string,
+    icon: string,
+}

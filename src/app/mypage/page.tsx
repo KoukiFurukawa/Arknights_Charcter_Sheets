@@ -2,6 +2,9 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 
+// components
+import SheetList from '../_components/sheet/SheetList/SheetList';
+
 function Mypage() {
 
     const router = useRouter()
@@ -14,6 +17,7 @@ function Mypage() {
     return (
         <div>
             mypage
+            < SheetList />
             <button 
                 className="group fixed bottom-16 right-12 inline-flex h-14 w-14 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32"
                 onClick={transitionEdit}
